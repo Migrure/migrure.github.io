@@ -4,10 +4,109 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Beure — Contacto</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<style>
+/* Solo estilos del formulario (manteniendo tu estética) */
+.form-card{
+  border: 1px solid #eee;
+  border-radius: 18px;
+  padding: 22px;
+  background: #fff;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+}
+
+label{
+  font-size: 12px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color:#666;
+}
+
+input, textarea{
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.4;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px solid #e8e8e8;
+  outline: none;
+  background: #fff;
+  color:#111;
+}
+
+input:focus, textarea:focus{
+  border-color:#cfcfcf;
+}
+
+textarea{
+  min-height: 140px;
+  resize: vertical;
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  appearance:none;
+  border: 1px solid #111;
+  background:#111;
+  color:#fff;
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-size: 14px;
+  cursor:pointer;
+}
+
+.btn:hover{
+  filter: brightness(0.95);
+}
+
+.hint{
+  font-size: 13px;
+  color:#666;
+  margin: 0;
+}
+
+.small{
+  font-size: 13px;
+  color:#666;
+  margin: 12px 0 0;
+}
+
+.small a{
+  color:#111;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media(max-width: 900px){
+  .form-grid{ grid-template-columns: 1fr; }
+}
+</style>
 </head>
+
 <body>
+
 <header>
   <div class="logo"><a href="index.html">BEURE</a></div>
   <nav>
@@ -19,13 +118,71 @@
 </header>
 
 <section class="hero"></section>
-<section class="image-band"><h2>BEURE</h2></section>
+
+<section class="image-band">
+  <h2>BEURE</h2>
+</section>
 
 <section class="section-alt">
   <div class="wrap">
     <p class="section-kicker">Contacto</p>
     <h1 class="section-title">Hablemos.</h1>
-    <p class="section-lead">mru@beure.es</p>
+
+    <p class="section-lead">
+      Cuéntanos brevemente tu situación y te pondremos en contacto con el profesional adecuado.
+    </p>
+
+    <div class="section-grid">
+      <div class="form-card">
+        <!-- IMPORTANTE:
+             1) Crea tu formulario en Formspree
+             2) Sustituye TU_ID_DE_FORMSPREE por el ID real -->
+        <form action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
+          <div class="form-grid">
+            <div class="field">
+              <label for="nombre">Nombre</label>
+              <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+          </div>
+
+          <div class="field" style="margin-top:14px;">
+            <label for="empresa">Empresa (opcional)</label>
+            <input id="empresa" name="empresa" type="text" autocomplete="organization">
+          </div>
+
+          <div class="field" style="margin-top:14px;">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" required placeholder="¿Qué problema necesitas resolver?"></textarea>
+          </div>
+
+          <!-- Opcional: asunto -->
+          <input type="hidden" name="_subject" value="Nuevo contacto desde beure.es">
+
+          <div class="actions">
+            <button class="btn" type="submit">Enviar</button>
+            <p class="hint">Respondemos lo antes posible.</p>
+          </div>
+
+          <p class="small">
+            Si lo prefieres, escríbenos directamente a
+            <a href="mailto:mru@beure.es?subject=Contacto%20Beure">mru@beure.es</a>.
+          </p>
+        </form>
+      </div>
+
+      <figure class="quote">
+        <strong>Primer contacto</strong>
+        <p>
+          Una vez recibido tu mensaje, revisaremos el contexto y te propondremos el siguiente paso
+          para abordar el problema de forma práctica.
+        </p>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -34,5 +191,6 @@
   <p>mru@beure.es</p>
   <p>© 2026 Beure</p>
 </footer>
+
 </body>
 </html>
