@@ -3,65 +3,462 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Beure</title>
+  <title>Beure — Investment & Real Assets</title>
+  <meta name="description" content="Beure es una firma especializada en estrategia, inversión y gestión de activos reales con enfoque responsable." />
   <style>
-    :root { --bg1:#0f172a; --bg2:#111827; --card:rgba(255,255,255,.08); --txt:#e5e7eb; --muted:#9ca3af; }
+    :root{
+      --bg:#0b1220;
+      --panel:rgba(255,255,255,.06);
+      --panel2:rgba(255,255,255,.08);
+      --border:rgba(255,255,255,.12);
+      --text:#e8eefc;
+      --muted:#b6c2e2;
+      --muted2:#97a6cc;
+      --accent:#7c5cff;
+      --accent2:#3dd6c6;
+      --shadow:0 20px 70px rgba(0,0,0,.45);
+      --radius:20px;
+      --radius2:28px;
+      --max:1120px;
+    }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
-      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color:var(--txt);
-      min-height:100vh;
-      background: radial-gradient(900px 500px at 20% 10%, #4f46e5 0%, transparent 60%),
-                  radial-gradient(900px 500px at 80% 30%, #9333ea 0%, transparent 55%),
-                  linear-gradient(180deg, var(--bg1), var(--bg2));
-      display:grid; place-items:center;
-      padding:32px;
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(124,92,255,.55), transparent 60%),
+        radial-gradient(900px 520px at 80% 25%, rgba(61,214,198,.35), transparent 55%),
+        radial-gradient(1200px 700px at 50% 110%, rgba(255,255,255,.06), transparent 55%),
+        linear-gradient(180deg, #070b14, var(--bg));
+      letter-spacing:.01em;
     }
-    .wrap{max-width:860px; width:100%;}
-    .card{
-      background:var(--card);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:24px;
-      padding:32px;
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:0 22px}
+    .topbar{
+      position:sticky; top:0; z-index:30;
       backdrop-filter: blur(10px);
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
+      background: rgba(7,11,20,.55);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
-    h1{margin:0 0 10px; font-size:42px; letter-spacing:-.02em}
-    p{margin:0 0 18px; color:var(--muted); line-height:1.6; font-size:16px}
-    .row{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
-    a.btn{
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+      font-weight:700;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      font-size:13px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(124,92,255,1), rgba(61,214,198,1));
+      box-shadow: 0 10px 30px rgba(124,92,255,.25);
+    }
+    .menu{display:flex; gap:16px; align-items:center; flex-wrap:wrap}
+    .menu a{
+      text-decoration:none;
+      color:var(--muted);
+      font-size:14px;
+      padding:8px 10px;
+      border-radius:12px;
+    }
+    .menu a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .cta{
       display:inline-flex; align-items:center; gap:10px;
-      padding:12px 16px; border-radius:14px; text-decoration:none;
-      background:rgba(255,255,255,.14); color:var(--txt);
-      border:1px solid rgba(255,255,255,.18);
+      text-decoration:none;
+      padding:10px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      font-weight:600;
+      font-size:14px;
     }
-    a.btn:hover{background:rgba(255,255,255,.18)}
-    .tag{display:inline-block; padding:6px 10px; border-radius:999px; font-size:13px;
-      background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.16); color:var(--txt)}
-    .grid{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; margin-top:18px}
-    .mini{padding:14px; border-radius:16px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10)}
-    .mini b{display:block; margin-bottom:6px}
-    @media (max-width:800px){ .grid{grid-template-columns:1fr} h1{font-size:34px} }
+    .cta:hover{background:rgba(255,255,255,.10)}
+    .hero{padding:56px 0 26px}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .card{
+      border:1px solid var(--border);
+      background:var(--panel);
+      border-radius:var(--radius2);
+      box-shadow:var(--shadow);
+      padding:28px;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:8px 12px;
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:99px;
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(124,92,255,.12);
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:46px;
+      line-height:1.06;
+      letter-spacing:-.03em;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:16px;
+      max-width:62ch;
+    }
+    .heroActions{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .btnPrimary{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      background:linear-gradient(135deg, rgba(124,92,255,1), rgba(61,214,198,1));
+      color:#061018;
+      font-weight:800;
+      text-decoration:none;
+      border:0;
+    }
+    .btnPrimary:hover{filter:brightness(1.03)}
+    .btnGhost{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:700;
+      text-decoration:none;
+    }
+    .btnGhost:hover{background:rgba(255,255,255,.10)}
+    .aside{
+      display:flex; flex-direction:column; gap:14px;
+    }
+    .asideBox{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      border-radius:var(--radius);
+      padding:16px;
+    }
+    .asideBox b{display:block; margin-bottom:6px}
+    .asideBox span{color:var(--muted); font-size:14px; line-height:1.6}
+    .badgeRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .badge{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:13px;
+    }
+    section{padding:32px 0}
+    .sectionHead{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin-bottom:14px;
+    }
+    .sectionHead h2{
+      margin:0;
+      font-size:22px;
+      letter-spacing:-.02em;
+    }
+    .sectionHead p{margin:0; color:var(--muted2); max-width:75ch; line-height:1.6; font-size:14px}
+    .grid4{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px}
+    .metric{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      border-radius:18px;
+      padding:16px;
+    }
+    .metric .n{
+      font-size:28px;
+      letter-spacing:-.02em;
+      font-weight:900;
+      margin-bottom:6px;
+    }
+    .metric .t{color:var(--muted); font-size:14px; line-height:1.5}
+    .grid3{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px}
+    .pill{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.05);
+      border-radius:18px;
+      padding:18px;
+    }
+    .pill h3{margin:0 0 8px; font-size:16px}
+    .pill p{margin:0; color:var(--muted); font-size:14px; line-height:1.6}
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+    }
+    .callout{
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius:var(--radius2);
+      padding:22px;
+    }
+    .callout h3{margin:0 0 8px; font-size:18px}
+    .callout p{margin:0; color:var(--muted); line-height:1.6; font-size:14px}
+    .footer{
+      padding:26px 0 34px;
+      color:var(--muted2);
+      border-top:1px solid rgba(255,255,255,.08);
+    }
+    .footerRow{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    }
+    .small{font-size:13px; line-height:1.6}
+    .form{
+      display:grid; gap:10px; margin-top:14px;
+    }
+    input, textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+      color:var(--text);
+      font-size:14px;
+      outline:none;
+    }
+    input::placeholder, textarea::placeholder{color:rgba(182,194,226,.7)}
+    textarea{min-height:120px; resize:vertical}
+    .note{color:var(--muted2); font-size:13px; margin:0}
+    .sr{position:absolute; left:-9999px}
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns:1fr}
+      h1{font-size:38px}
+      .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .grid3{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <span class="tag">En construcción</span>
-      <h1>Beure</h1>
-      <p>Este es mi espacio de pruebas. Iré construyendo cosas aquí poco a poco: ideas, páginas, prototipos y experimentos.</p>
-
-      <div class="row">
-        <a class="btn" href="#" onclick="alert('¡Funciona! 😎'); return false;">Probar botón</a>
-        <a class="btn" href="https://github.com/migrure/migrure.github.io" target="_blank" rel="noopener">Ver repo</a>
-      </div>
-
-      <div class="grid">
-        <div class="mini"><b>✅ Objetivo</b><span style="color:var(--muted)">Publicar una web sencilla y bonita.</span></div>
-        <div class="mini"><b>🧪 Próximo</b><span style="color:var(--muted)">Añadir una página “Sobre mí”.</span></div>
-        <div class="mini"><b>🚀 Más adelante</b><span style="color:var(--muted)">Conectar el dominio beure.es.</span></div>
+  <header class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#inicio" aria-label="Beure Home">
+          <span class="logo" aria-hidden="true"></span>
+          BEURE
+        </a>
+        <nav class="menu" aria-label="Navegación">
+          <a href="#quienes">Quiénes somos</a>
+          <a href="#cifras">En cifras</a>
+          <a href="#enfoque">Enfoque</a>
+          <a href="#valores">Valores</a>
+          <a href="#contacto" class="cta">Contacto</a>
+        </nav>
       </div>
     </div>
-  </div>
+  </header>
+
+  <main id="inicio">
+    <div class="container">
+      <section class="hero">
+        <div class="heroGrid">
+          <div class="card">
+            <span class="kicker"><span class="dot" aria-hidden="true"></span> Firma independiente · Activos reales · Gestión responsable</span>
+            <h1>Inversión y gestión de activos reales con visión de largo plazo.</h1>
+            <p class="lead">
+              Beure es una firma especializada en estrategia, inversión y gestión de carteras vinculadas a activos reales.
+              Diseñamos soluciones orientadas a estabilidad, transparencia y creación de valor sostenible.
+            </p>
+            <div class="heroActions">
+              <a class="btnPrimary" href="#enfoque">Ver enfoque</a>
+              <a class="btnGhost" href="#cifras">Nuestra experiencia</a>
+            </div>
+
+            <div class="badgeRow" aria-label="Ámbitos">
+              <span class="badge">Estrategia</span>
+              <span class="badge">Gestión</span>
+              <span class="badge">Desarrollo</span>
+              <span class="badge">Operación</span>
+              <span class="badge">Sostenibilidad</span>
+            </div>
+          </div>
+
+          <aside class="aside" aria-label="Resumen">
+            <div class="asideBox">
+              <b>Qué hacemos</b>
+              <span>Acompañamos decisiones de inversión a lo largo de todo el ciclo de vida del activo: análisis, estructuración, ejecución y operación.</span>
+            </div>
+            <div class="asideBox">
+              <b>Cómo lo hacemos</b>
+              <span>Metodología disciplinada, métricas claras, gobernanza y control de riesgos desde el primer día.</span>
+            </div>
+            <div class="asideBox">
+              <b>Para quién</b>
+              <span>Inversores y socios que buscan exposición a activos reales con enfoque responsable y criterios de calidad.</span>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="quienes">
+        <div class="sectionHead">
+          <div>
+            <h2>Quiénes somos</h2>
+            <p>Un equipo con mentalidad institucional y enfoque práctico, centrado en la ejecución y la gestión diaria de activos.</p>
+          </div>
+        </div>
+        <div class="split">
+          <div class="callout">
+            <h3>Especialización</h3>
+            <p>Nos enfocamos en segmentos donde la calidad del activo y la gestión operativa marcan la diferencia. Priorizamos claridad, control de riesgos y eficiencia.</p>
+          </div>
+          <div class="callout">
+            <h3>Metodología</h3>
+            <p>Un proceso repetible: investigación → selección → estructuración → ejecución → operación. La consistencia del proceso es parte del resultado.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="cifras">
+        <div class="sectionHead">
+          <div>
+            <h2>Nuestra experiencia en cifras</h2>
+            <p>Indicadores ilustrativos para una web de prueba. Luego los ajustamos con números reales o los dejamos genéricos.</p>
+          </div>
+        </div>
+        <div class="grid4">
+          <div class="metric">
+            <div class="n">+€250M</div>
+            <div class="t">Volumen analizado y estructurado (indicativo)</div>
+          </div>
+          <div class="metric">
+            <div class="n">+1.200</div>
+            <div class="t">Unidades / activos bajo seguimiento (indicativo)</div>
+          </div>
+          <div class="metric">
+            <div class="n">98%</div>
+            <div class="t">Tasa de ocupación objetivo / estabilidad (indicativo)</div>
+          </div>
+          <div class="metric">
+            <div class="n">2019</div>
+            <div class="t">Inicio de actividad (indicativo)</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="enfoque">
+        <div class="sectionHead">
+          <div>
+            <h2>Enfoque</h2>
+            <p>Una propuesta clara: seleccionar bien, ejecutar con rigor y operar con estándares, para capturar valor a lo largo del tiempo.</p>
+          </div>
+        </div>
+        <div class="grid3">
+          <div class="pill">
+            <h3>1) Selección disciplinada</h3>
+            <p>Definimos criterios, analizamos escenarios y priorizamos ubicaciones/activos con demanda estructural y fundamentos sólidos.</p>
+          </div>
+          <div class="pill">
+            <h3>2) Ejecución y control</h3>
+            <p>Gobernanza, reporting y seguimiento. Control de hitos, presupuestos y riesgos con una visión de cartera.</p>
+          </div>
+          <div class="pill">
+            <h3>3) Operación profesional</h3>
+            <p>Gestión enfocada en experiencia de usuario, mantenimiento preventivo y mejora continua del activo para sostener retornos.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="valores">
+        <div class="sectionHead">
+          <div>
+            <h2>Valores</h2>
+            <p>Principios sencillos que guían decisiones complejas: responsabilidad, transparencia y excelencia operativa.</p>
+          </div>
+        </div>
+        <div class="grid3">
+          <div class="pill">
+            <h3>Compromiso</h3>
+            <p>Visión de largo plazo, alineación con inversores y foco en resultados medibles.</p>
+          </div>
+          <div class="pill">
+            <h3>Seguridad</h3>
+            <p>Gestión del riesgo desde el origen: estructura, procesos, cumplimiento y control.</p>
+          </div>
+          <div class="pill">
+            <h3>Excelencia</h3>
+            <p>Rigor técnico y calidad en ejecución, sin perder pragmatismo en la toma de decisiones.</p>
+          </div>
+          <div class="pill">
+            <h3>Sostenibilidad</h3>
+            <p>Eficiencia, durabilidad y estándares que mejoran el activo y reducen fricciones operativas.</p>
+          </div>
+          <div class="pill">
+            <h3>Creación de valor</h3>
+            <p>Mejoras y optimización operativa para generar valor real y sostenible.</p>
+          </div>
+          <div class="pill">
+            <h3>Transparencia</h3>
+            <p>Información clara, reporting consistente y trazabilidad en decisiones clave.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto">
+        <div class="sectionHead">
+          <div>
+            <h2>Contacto</h2>
+            <p>Para esta fase de pruebas, el formulario no envía emails todavía. Luego lo conectamos (sin exponer datos personales) usando un servicio gratuito.</p>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="callout">
+            <h3>¿Hablamos?</h3>
+            <p>Déjanos un mensaje y definimos el siguiente paso. También podemos crear una sección “Portal” o “Documentación” para inversores en el futuro.</p>
+            <p class="note" style="margin-top:10px;">Consejo: cuando lo conectemos, usaremos un email genérico tipo <em>hola@beure.es</em> o un formulario con redirección segura.</p>
+          </div>
+
+          <div class="callout">
+            <form class="form" onsubmit="event.preventDefault(); alert('Mensaje enviado (demo). Luego lo conectamos de verdad.');">
+              <label class="sr" for="name">Nombre</label>
+              <input id="name" name="name" placeholder="Nombre (opcional)" />
+
+              <label class="sr" for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="Email (opcional)" />
+
+              <label class="sr" for="msg">Mensaje</label>
+              <textarea id="msg" name="msg" placeholder="Mensaje"></textarea>
+
+              <button class="btnPrimary" type="submit">Enviar</button>
+              <p class="note">Este envío es de demostración (sin backend).</p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footerRow">
+          <div class="small">
+            <strong>BEURE</strong><br/>
+            Sitio experimental · Sin información personal · © <span id="y"></span>
+          </div>
+          <div class="small">
+            <a href="#inicio" style="text-decoration:none; color:var(--muted)">Volver arriba ↑</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
