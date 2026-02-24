@@ -160,105 +160,6 @@ nav a:hover {
   color: #555;
 }
 
-/* ===== Sección: Quiénes somos (nuevo) ===== */
-
-.section-alt {
-  padding: 90px 8%;
-  background: #fff;
-}
-
-.section-alt .wrap {
-  max-width: 1120px;
-  margin: 0 auto;
-}
-
-.section-kicker {
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #777;
-  margin: 0 0 12px;
-}
-
-.section-title {
-  font-size: clamp(28px, 3.2vw, 44px);
-  line-height: 1.1;
-  margin: 0 0 18px;
-  letter-spacing: -0.02em;
-}
-
-.section-lead {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #222;
-  max-width: 76ch;
-  margin: 0 0 34px;
-}
-
-.section-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 28px;
-  align-items: start;
-}
-
-.box {
-  border: 1px solid #eee;
-  border-radius: 18px;
-  padding: 22px;
-  background: #fff;
-}
-
-.box p {
-  margin: 0 0 14px;
-  line-height: 1.7;
-  color: #222;
-}
-
-.box p:last-child { margin-bottom: 0; }
-
-.pill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.pill {
-  border: 1px solid #eee;
-  border-radius: 999px;
-  padding: 8px 12px;
-  font-size: 13px;
-  color: #333;
-  background: #fafafa;
-  white-space: nowrap;
-}
-
-.quote {
-  margin: 0;
-  padding: 22px;
-  border-radius: 18px;
-  background: #f7f7f7;
-  border: 1px solid #eee;
-  color: #111;
-}
-
-.quote strong {
-  display: block;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #666;
-  margin-bottom: 10px;
-}
-
-.quote p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #222;
-}
-
 /* FOOTER */
 
 footer {
@@ -291,9 +192,6 @@ footer p {
     font-size: 42px;
   }
 
-  .section-alt { padding: 64px 8%; }
-  .section-grid { grid-template-columns: 1fr; }
-
 }
 </style>
 </head>
@@ -301,12 +199,12 @@ footer p {
 <body>
 
 <header>
-  <div class="logo">BEURE</div>
+  <div class="logo"><a href="index.html" style="color:#111;text-decoration:none;">BEURE</a></div>
   <nav>
-    <a href="#quienes-somos">Quiénes somos</a>
-    <a href="#estrategia">Estrategia</a>
-    <a href="#valores">Valores</a>
-    <a href="#contacto">Contacto</a>
+    <a href="quienes-somos.html">Quiénes somos</a>
+    <a href="estrategia.html">Estrategia</a>
+    <a href="valores.html">Valores</a>
+    <a href="contacto.html">Contacto</a>
   </nav>
 </header>
 
@@ -319,61 +217,6 @@ footer p {
 
 <section class="image-band">
   <h2>BEURE</h2>
-</section>
-
-<!-- ===== NUEVO: QUIÉNES SOMOS ===== -->
-<section id="quienes-somos" class="section-alt">
-  <div class="wrap">
-    <p class="section-kicker">Quiénes somos</p>
-    <h2 class="section-title">Una plataforma flexible con estándares de primer nivel.</h2>
-    <p class="section-lead">
-      Beure nace de la experiencia de reputados profesionales con trayectoria en grandes firmas multinacionales y Big4.
-      Ponemos esa exigencia al servicio de pymes, adaptándonos al ritmo y a las necesidades reales de cada situación.
-    </p>
-
-    <div class="section-grid">
-      <div class="box">
-        <p>
-          En Beure colaboran profesionales que tienen en común su pasado en el ámbito financiero, de inversión y consultoría empresarial
-          en firmas y compañías que promueven la excelencia.
-        </p>
-        <p>
-          Queremos canalizar sus capacidades y conocimientos a través de canales más flexibles, directos y enfocados a solucionar
-          problemas reales.
-        </p>
-
-        <div class="pill-list" aria-label="Rasgos de Beure">
-          <span class="pill">Excelencia</span>
-          <span class="pill">Flexibilidad</span>
-          <span class="pill">Experiencia multinacional</span>
-          <span class="pill">Enfoque práctico</span>
-          <span class="pill">Soluciones reales</span>
-        </div>
-      </div>
-
-      <figure class="quote">
-        <strong>Nuestro método</strong>
-        <p>
-          Escuchamos los problemas y necesidades del cliente antes de proponer una colaboración.
-          Si trabajamos juntos, será para buscar una solución a su problema de forma eminentemente práctica.
-        </p>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section id="estrategia" class="section">
-  <h2>Estrategia</h2>
-  <p>
-    (Pendiente de contenido)
-  </p>
-</section>
-
-<section id="valores" class="section">
-  <h2>Valores</h2>
-  <p>
-    (Pendiente de contenido)
-  </p>
 </section>
 
 <section class="section">
@@ -400,7 +243,7 @@ footer p {
   </div>
 </section>
 
-<footer id="contacto">
+<footer>
   <h2>Contacto</h2>
   <p>mru@beure.es</p>
   <p>© 2026 Beure</p>
