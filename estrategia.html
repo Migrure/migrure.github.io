@@ -7,6 +7,146 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<style>
+/* Mejoras visuales SOLO para Estrategia (no afecta al resto) */
+.strategy-shell{
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media(max-width: 900px){
+  .strategy-shell{ grid-template-columns: 1fr; }
+}
+
+.panel{
+  border: 1px solid #eee;
+  border-radius: 18px;
+  padding: 22px;
+  background: #fff;
+}
+
+.panel h3{
+  margin: 0 0 10px;
+  font-size: 16px;
+  letter-spacing: -0.01em;
+}
+
+.muted{
+  color:#555;
+  line-height:1.7;
+  margin: 0;
+}
+
+.stack{ display:flex; flex-direction:column; gap: 14px; }
+
+.badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.badge{
+  border:1px solid #eee;
+  border-radius:999px;
+  padding:8px 12px;
+  font-size:13px;
+  background:#fafafa;
+  color:#333;
+  white-space:nowrap;
+}
+
+.steps{
+  display:flex;
+  flex-direction:column;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.step{
+  display:flex;
+  gap: 14px;
+  padding: 14px;
+  border: 1px solid #eee;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.step-num{
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.step-title{
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.step-text{
+  margin: 0;
+  color:#555;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.cta{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #111;
+  color: #fff;
+}
+
+.cta p{
+  margin: 0;
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+}
+
+.cta a{
+  display:inline-flex;
+  width: fit-content;
+  border: 1px solid rgba(255,255,255,0.25);
+  color:#fff;
+  text-decoration:none;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 14px;
+}
+
+.cta a:hover{ filter: brightness(0.95); }
+
+.note{
+  border-radius: 18px;
+  border: 1px solid #eee;
+  background: #f7f7f7;
+  padding: 18px;
+}
+
+.note strong{
+  display:block;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666;
+  margin-bottom: 10px;
+}
+</style>
 </head>
 
 <body>
@@ -33,39 +173,99 @@
     <h1 class="section-title">Acompañamiento real para generar cambios reales.</h1>
 
     <p class="section-lead">
-      Beure tiene la intención de dar un servicio de acompañamiento a pymes españolas en el ámbito financiero,
-      de inversión y de consultoría empresarial para solucionar problemas reales, evitando informes estériles
-      que no supongan un cambio sustancial en las compañías.
+      Beure acompaña a pymes españolas en finanzas, inversión y consultoría empresarial con un enfoque orientado a ejecución:
+      menos documento y más decisión, implementación y resultados medibles.
     </p>
 
-    <div class="section-grid">
-      <div class="box">
-        <p>
-          Una vez que un cliente se pone en contacto con nosotros, desde Beure tratamos de ponerle en contacto con el profesional
-          de la red de colaboradores que pueda entender el problema y le plantee la forma de abordarlo.
-        </p>
-        <p>
-          Este primer planteamiento se realiza sin coste inicial, con el objetivo de alinear expectativas y definir un enfoque práctico
-          antes de iniciar cualquier colaboración.
-        </p>
+    <div class="strategy-shell">
+      <!-- Columna principal -->
+      <div class="stack">
+        <div class="panel">
+          <h3>Qué evitamos</h3>
+          <p class="muted">
+            Informes estériles que “explican” pero no transforman. Nuestra prioridad es
+            aterrizar el problema, diseñar una vía de solución y acompañar su puesta en marcha.
+          </p>
 
-        <div class="pill-list" aria-label="Ámbitos de trabajo">
-          <span class="pill">Finanzas</span>
-          <span class="pill">Inversión</span>
-          <span class="pill">Consultoría empresarial</span>
-          <span class="pill">Acompañamiento</span>
-          <span class="pill">Ejecución</span>
+          <div class="badges" style="margin-top:14px;">
+            <span class="badge">Enfoque práctico</span>
+            <span class="badge">Orientado a ejecución</span>
+            <span class="badge">Criterio financiero</span>
+            <span class="badge">Decisiones accionables</span>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h3>Cómo trabajamos</h3>
+          <div class="steps" aria-label="Pasos de trabajo">
+            <div class="step">
+              <div class="step-num">1</div>
+              <div>
+                <p class="step-title">Escucha y definición del problema</p>
+                <p class="step-text">
+                  Entendemos el contexto, las restricciones y qué sería un “buen resultado”.
+                  Sin asumir soluciones antes de tiempo.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">2</div>
+              <div>
+                <p class="step-title">Asignación del profesional adecuado</p>
+                <p class="step-text">
+                  Te conectamos con el colaborador de Beure que mejor encaja por experiencia
+                  y capacidad para abordar el caso con rapidez.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">3</div>
+              <div>
+                <p class="step-title">Propuesta de abordaje sin coste inicial</p>
+                <p class="step-text">
+                  Planteamos una vía de trabajo clara (prioridades, acciones y enfoque) para que
+                  puedas valorar encaje antes de iniciar cualquier colaboración.
+                </p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-num">4</div>
+              <div>
+                <p class="step-title">Acompañamiento y seguimiento</p>
+                <p class="step-text">
+                  Si avanzamos, trabajamos contigo para ejecutar, ajustar y consolidar cambios.
+                  Lo importante es el impacto, no el volumen de entregables.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <figure class="quote">
-        <strong>Sin fricción</strong>
-        <p>
-          Menos teoría y más acción: el foco está en entender el problema, proponer una vía de solución y ejecutarla
-          con criterio y flexibilidad.
-        </p>
-      </figure>
+      <!-- Columna lateral -->
+      <div class="stack">
+        <div class="note">
+          <strong>Ámbitos habituales</strong>
+          <p class="muted" style="margin:0;">
+            Finanzas corporativas, planificación y control, análisis de inversión, soporte a decisiones,
+            mejora de procesos y acompañamiento en momentos clave.
+          </p>
+        </div>
+
+        <div class="cta">
+          <div style="font-weight:600;">¿Quieres contarnos tu caso?</div>
+          <p>
+            Escríbenos y te responderemos para orientarte y, si encaja, ponerte en contacto con el profesional adecuado.
+          </p>
+          <a href="contacto.html">Ir al formulario</a>
+          <a href="mailto:info@beure.es?subject=Contacto%20Beure">Enviar email</a>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
