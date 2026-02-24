@@ -128,7 +128,31 @@ footer p {
     <a href="#">Contacto</a>
   </nav>
 </header>
-
+.two-col{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 48px;
+  align-items: center;
+}
+.photo{
+  width:100%;
+  height: 420px;
+  border-radius: 18px;
+  overflow:hidden;
+  background:#f2f2f2;
+  border:1px solid #eee;
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  filter: grayscale(100%);
+}
+@media(max-width: 900px){
+  .two-col{ grid-template-columns: 1fr; }
+  .photo{ height: 320px; }
+}
 <section class="hero">
   <div class="hero-content">
     <h1>Gestión e inversión en activos reales</h1>
@@ -137,19 +161,29 @@ footer p {
 </section>
 
 <section class="section">
-  <h2>Nuestro enfoque</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Selección rigurosa</h3>
-      <p>Análisis exhaustivo de cada oportunidad con criterios claros y disciplina estratégica.</p>
+  <div class="two-col">
+    <div>
+      <h2>Nuestro enfoque</h2>
+      <p>Una firma independiente enfocada en calidad, disciplina y visión de largo plazo. Operamos con procesos claros, métricas simples y ejecución consistente.</p>
+
+      <div class="grid" style="margin-top:28px">
+        <div class="card">
+          <h3>Selección rigurosa</h3>
+          <p>Análisis exhaustivo de cada oportunidad con criterios claros.</p>
+        </div>
+        <div class="card">
+          <h3>Ejecución eficiente</h3>
+          <p>Control operativo y seguimiento constante para maximizar valor.</p>
+        </div>
+        <div class="card">
+          <h3>Visión a largo plazo</h3>
+          <p>Fundamentos sólidos y gestión responsable.</p>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Ejecución eficiente</h3>
-      <p>Control operativo y seguimiento constante para maximizar valor.</p>
-    </div>
-    <div class="card">
-      <h3>Visión a largo plazo</h3>
-      <p>Construimos carteras estables con fundamentos sólidos y gestión responsable.</p>
+
+    <div class="photo" aria-label="Espacio de trabajo en entorno natural">
+      <img src="assets/Ordenador_naturaleza.jpg" alt="Espacio de trabajo moderno con vistas al bosque">
     </div>
   </div>
 </section>
