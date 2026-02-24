@@ -1,268 +1,249 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Beure</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Beure</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #ffffff;
-      color: #111;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 8%;
-      border-bottom: 1px solid #eee;
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(8px);
-      z-index: 10;
-    }
+<style>
 
-    .logo {
-      font-weight: 700;
-      letter-spacing: 2px;
-    }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #111;
+}
 
-    nav a {
-      margin-left: 30px;
-      text-decoration: none;
-      color: #111;
-      font-weight: 400;
-    }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 8%;
+  border-bottom: 1px solid #eee;
+  background: rgba(255,255,255,0.95);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-    nav a:hover {
-      text-decoration: underline;
-      text-underline-offset: 6px;
-    }
+.logo {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
 
-    .hero {
-      position: relative;
-      height: 75vh;
-      background: url("https://images.unsplash.com/photo-1505691723518-36a5ac3b2a89?q=80&w=1974&auto=format&fit=crop") center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      padding: 0 8%;
-      color: white;
-    }
+nav a {
+  margin-left: 30px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 400;
+}
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-    }
+nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
 
-    .hero-content {
-      position: relative;
-      max-width: 600px;
-    }
+/* HERO */
 
-    .hero h1 {
-      font-size: 48px;
-      font-weight: 600;
-      margin: 0 0 20px;
-      line-height: 1.1;
-    }
+.hero {
+  position: relative;
+  height: 75vh;
+  background: url("https://images.unsplash.com/photo-1505691723518-36a5ac3b2a89?q=80&w=1600&auto=format&fit=crop") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  color: white;
+}
 
-    .hero p {
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 1.6;
-      margin: 0;
-    }
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
 
-    .section {
-      padding: 90px 8%;
-    }
+.hero-content {
+  position: relative;
+  max-width: 600px;
+}
 
-    .section h2 {
-      font-size: 28px;
-      margin: 0 0 18px;
-    }
+.hero h1 {
+  font-size: 48px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
 
-    .section > p {
-      margin: 0 0 26px;
-      color: #555;
-      line-height: 1.6;
-      max-width: 70ch;
-    }
+.hero p {
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 1.6;
+}
 
-    /* --- Two-column layout (texto + foto) --- */
-    .two-col{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 48px;
-      align-items: center;
-    }
+/* SECTIONS */
 
-    .photo{
-      width:100%;
-      height: 420px;
-      border-radius: 18px;
-      overflow:hidden;
-      background:#f2f2f2;
-      border:1px solid #eee;
-    }
+.section {
+  padding: 90px 8%;
+}
 
-    .photo img{
-      width:100%;
-      height:100%;
-      object-fit: cover;
-      display:block;
-      filter: grayscale(100%);
-      transform: scale(1.02);
-    }
+.section h2 {
+  font-size: 28px;
+  margin-bottom: 18px;
+}
 
-    /* --- Cards --- */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-top: 28px;
-    }
+.section p {
+  color: #555;
+  line-height: 1.6;
+}
 
-    .card {
-      border-top: 2px solid #111;
-      padding-top: 20px;
-    }
+/* TWO COLUMN LAYOUT */
 
-    .card h3 {
-      font-size: 18px;
-      margin: 0 0 10px;
-    }
+.two-col{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 48px;
+  align-items: center;
+}
 
-    .card p {
-      margin: 0;
-      color: #555;
-      line-height: 1.6;
-    }
+.photo{
+  width:100%;
+  height: 420px;
+  border-radius: 18px;
+  overflow:hidden;
+  background:#f2f2f2;
+  border:1px solid #eee;
+}
 
-    footer {
-      background: #111;
-      color: white;
-      padding: 60px 8%;
-    }
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  filter: grayscale(100%) contrast(1.05) brightness(0.95);
+}
 
-    footer p {
-      color: #aaa;
-      line-height: 1.6;
-      margin: 10px 0 0;
-    }
+/* CARDS */
 
-    @media(max-width: 900px){
-      .grid {
-        grid-template-columns: 1fr;
-        gap: 22px;
-      }
-      .hero h1 {
-        font-size: 36px;
-      }
-      .two-col{
-        grid-template-columns: 1fr;
-      }
-      .photo{
-        height: 320px;
-      }
-      header{
-        padding: 18px 6%;
-      }
-      nav a{
-        margin-left: 14px;
-      }
-      .section{
-        padding: 60px 6%;
-      }
-      .hero{
-        padding: 0 6%;
-      }
-      footer{
-        padding: 50px 6%;
-      }
-    }
-  </style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 28px;
+}
+
+.card {
+  border-top: 2px solid #111;
+  padding-top: 20px;
+}
+
+.card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #555;
+}
+
+/* FOOTER */
+
+footer {
+  background: #111;
+  color: white;
+  padding: 60px 8%;
+}
+
+footer p {
+  color: #aaa;
+}
+
+/* RESPONSIVE */
+
+@media(max-width: 900px){
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .two-col{
+    grid-template-columns: 1fr;
+  }
+
+  .photo{
+    height: 320px;
+  }
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">BEURE</div>
-    <nav>
-      <a href="#quienes">Quiénes somos</a>
-      <a href="#enfoque">Estrategia</a>
-      <a href="#valores">Valores</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">BEURE</div>
+  <nav>
+    <a href="#">Quiénes somos</a>
+    <a href="#">Estrategia</a>
+    <a href="#">Valores</a>
+    <a href="#">Contacto</a>
+  </nav>
+</header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Gestión e inversión en activos reales</h1>
-      <p>Una firma independiente enfocada en calidad, disciplina y visión de largo plazo.</p>
-    </div>
-  </section>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Gestión e inversión en activos reales</h1>
+    <p>Una firma independiente enfocada en calidad, disciplina y visión de largo plazo.</p>
+  </div>
+</section>
 
-  <section class="section" id="enfoque">
-    <div class="two-col">
-      <div>
-        <h2>Nuestro enfoque</h2>
-        <p>Una firma independiente enfocada en calidad, disciplina y visión de largo plazo. Operamos con procesos claros, métricas simples y ejecución consistente.</p>
+<section class="section">
+  <div class="two-col">
 
-        <div class="grid">
-          <div class="card">
-            <h3>Selección rigurosa</h3>
-            <p>Análisis exhaustivo de cada oportunidad con criterios claros.</p>
-          </div>
-          <div class="card">
-            <h3>Ejecución eficiente</h3>
-            <p>Control operativo y seguimiento constante para maximizar valor.</p>
-          </div>
-          <div class="card">
-            <h3>Visión a largo plazo</h3>
-            <p>Fundamentos sólidos y gestión responsable.</p>
-          </div>
+    <div>
+      <h2>Nuestro enfoque</h2>
+      <p>
+        Una firma independiente enfocada en calidad, disciplina y visión de largo plazo. 
+        Operamos con procesos claros, métricas simples y ejecución consistente.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Selección rigurosa</h3>
+          <p>Análisis exhaustivo de cada oportunidad con criterios claros.</p>
+        </div>
+
+        <div class="card">
+          <h3>Ejecución eficiente</h3>
+          <p>Control operativo y seguimiento constante para maximizar valor.</p>
+        </div>
+
+        <div class="card">
+          <h3>Visión a largo plazo</h3>
+          <p>Fundamentos sólidos y gestión responsable.</p>
         </div>
       </div>
-
-      <div class="photo" aria-label="Espacio de trabajo en entorno natural">
-        <img src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2a89?q=80&w=1600&auto=format&fit=crop" alt="Espacio de trabajo moderno con vistas al bosque">
-      </div>
     </div>
-  </section>
 
-  <section class="section" id="valores">
-    <h2>Valores</h2>
-    <p>Transparencia, ejecución y responsabilidad como base de cada decisión.</p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Transparencia</h3>
-        <p>Comunicación clara, procesos trazables y reporting consistente.</p>
-      </div>
-      <div class="card">
-        <h3>Rigor</h3>
-        <p>Disciplina analítica y control del riesgo a lo largo del ciclo del activo.</p>
-      </div>
-      <div class="card">
-        <h3>Responsabilidad</h3>
-        <p>Visión de largo plazo y compromiso con la calidad operativa.</p>
-      </div>
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1497215842964-222b430dc094?q=80&w=1600&auto=format&fit=crop"
+           alt="Espacio de trabajo moderno en entorno natural">
     </div>
-  </section>
 
-  <footer id="contacto">
-    <h2>Contacto</h2>
-    <p>Estamos desarrollando esta sección. Próximamente habilitaremos un canal formal de contacto.</p>
-    <p>© 2026 Beure</p>
-  </footer>
+  </div>
+</section>
+
+<footer>
+  <h2>Contacto</h2>
+  <p>Estamos desarrollando esta sección. Próximamente habilitaremos un canal formal de contacto.</p>
+  <p>© 2026 Beure</p>
+</footer>
 
 </body>
 </html>
