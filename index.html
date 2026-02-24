@@ -8,12 +8,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --header-h: 84px; /* ajusta si quieres el header más alto/bajo */
+}
 
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background: #ffffff;
   color: #111;
+  padding-top: var(--header-h); /* <- compensa el header fijo */
 }
 
 header {
@@ -23,8 +27,13 @@ header {
   padding: 28px 8%;
   border-bottom: 1px solid #eee;
   background: rgba(255,255,255,0.95);
-  position: sticky;
+
+  position: fixed;  /* <- antes sticky */
   top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h); /* <- altura estable para compensar bien */
+  box-sizing: border-box;
   z-index: 100;
 }
 
@@ -72,7 +81,7 @@ nav a:hover {
 .hero h1 {
   font-size: 48px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin: 0 0 20px; /* <- evita márgenes raros arriba */
   line-height: 1.1;
 }
 
@@ -80,6 +89,7 @@ nav a:hover {
   font-size: 18px;
   font-weight: 300;
   line-height: 1.6;
+  margin: 0;
 }
 
 /* IMAGE BAND */
@@ -106,6 +116,7 @@ nav a:hover {
   font-size: 64px;
   letter-spacing: 10px;
   font-weight: 600;
+  margin: 0;
 }
 
 /* SECTION */
@@ -163,6 +174,10 @@ footer p {
 
 @media(max-width: 900px){
 
+  :root{
+    --header-h: 76px;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
@@ -176,7 +191,6 @@ footer p {
   }
 
 }
-
 </style>
 </head>
 
