@@ -9,143 +9,185 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
-/* Mejoras visuales SOLO para Estrategia (no afecta al resto) */
-.strategy-shell{
-  display: grid;
+
+/* =========================
+   Estrategia – Estilo Modernizado
+   ========================= */
+
+.strategy-grid{
+  display:grid;
   grid-template-columns: 1.2fr 0.8fr;
-  gap: 28px;
-  align-items: start;
+  gap: 40px;
+  align-items:start;
+  margin-top: 40px;
 }
 
-@media(max-width: 900px){
-  .strategy-shell{ grid-template-columns: 1fr; }
+@media (max-width: 900px){
+  .strategy-grid{ grid-template-columns: 1fr; }
 }
 
 .panel{
   border: 1px solid #eee;
-  border-radius: 18px;
-  padding: 22px;
-  background: #fff;
+  border-radius: 22px;
+  padding: 28px;
+  background:#fff;
 }
 
 .panel h3{
-  margin: 0 0 10px;
-  font-size: 16px;
-  letter-spacing: -0.01em;
+  margin:0 0 14px;
+  font-size:18px;
+  letter-spacing:-0.01em;
 }
 
 .muted{
   color:#555;
-  line-height:1.7;
-  margin: 0;
+  line-height:1.75;
+  margin:0;
 }
 
-.stack{ display:flex; flex-direction:column; gap: 14px; }
+.stack{
+  display:flex;
+  flex-direction:column;
+  gap:28px;
+}
 
+/* Banda visual */
+.visual-band{
+  margin-top:40px;
+  border-radius:24px;
+  overflow:hidden;
+  min-height:260px;
+  display:flex;
+  align-items:flex-end;
+  padding:32px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.25)),
+    url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg");
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+}
+
+.visual-band h3{
+  margin:0 0 8px;
+  font-size:24px;
+  letter-spacing:-0.02em;
+}
+
+.visual-band p{
+  margin:0;
+  font-size:15px;
+  line-height:1.7;
+  color:rgba(255,255,255,0.9);
+}
+
+/* Badges */
 .badges{
   display:flex;
   flex-wrap:wrap;
-  gap:10px;
+  gap:12px;
+  margin-top:18px;
 }
 
 .badge{
-  border:1px solid #eee;
+  padding:10px 16px;
   border-radius:999px;
-  padding:8px 12px;
   font-size:13px;
+  border:1px solid #eee;
   background:#fafafa;
-  color:#333;
-  white-space:nowrap;
 }
 
+/* Steps */
 .steps{
   display:flex;
   flex-direction:column;
-  gap: 14px;
-  margin-top: 14px;
+  gap:18px;
 }
 
 .step{
   display:flex;
-  gap: 14px;
-  padding: 14px;
-  border: 1px solid #eee;
-  border-radius: 16px;
-  background: #fff;
+  gap:16px;
 }
 
 .step-num{
-  flex: 0 0 auto;
-  width: 34px;
-  height: 34px;
-  border-radius: 999px;
-  background: #111;
-  color: #fff;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:#111;
+  color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-weight: 600;
-  font-size: 13px;
-  margin-top: 2px;
+  font-weight:600;
+  font-size:14px;
 }
 
 .step-title{
-  margin: 0 0 4px;
-  font-size: 15px;
-  font-weight: 600;
+  margin:0 0 6px;
+  font-weight:600;
 }
 
 .step-text{
-  margin: 0;
+  margin:0;
+  font-size:14px;
+  line-height:1.7;
   color:#555;
-  line-height: 1.7;
-  font-size: 14px;
 }
 
-.cta{
-  display:flex;
-  flex-direction:column;
-  gap: 10px;
-  padding: 18px;
-  border-radius: 18px;
-  background: #111;
-  color: #fff;
+/* Sidebar */
+.side-sticky{
+  position:sticky;
+  top:120px;
 }
 
-.cta p{
-  margin: 0;
-  color: rgba(255,255,255,0.85);
-  line-height: 1.6;
+@media (max-width:900px){
+  .side-sticky{ position:static; }
 }
-
-.cta a{
-  display:inline-flex;
-  width: fit-content;
-  border: 1px solid rgba(255,255,255,0.25);
-  color:#fff;
-  text-decoration:none;
-  border-radius: 999px;
-  padding: 10px 14px;
-  font-size: 14px;
-}
-
-.cta a:hover{ filter: brightness(0.95); }
 
 .note{
-  border-radius: 18px;
-  border: 1px solid #eee;
-  background: #f7f7f7;
-  padding: 18px;
+  border-radius:22px;
+  background:#f6f6f6;
+  padding:24px;
+  border:1px solid #eee;
 }
 
 .note strong{
   display:block;
-  font-size: 14px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #666;
-  margin-bottom: 10px;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:0.12em;
+  color:#666;
+  margin-bottom:12px;
 }
+
+.cta{
+  margin-top:24px;
+  background:#111;
+  color:#fff;
+  padding:26px;
+  border-radius:22px;
+}
+
+.cta p{
+  margin:8px 0 16px;
+  color:rgba(255,255,255,0.85);
+  line-height:1.6;
+}
+
+.cta a{
+  display:inline-block;
+  margin-right:10px;
+  margin-top:8px;
+  padding:10px 18px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,0.3);
+  color:#fff;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.cta a:hover{ opacity:0.85; }
+
 </style>
 </head>
 
@@ -169,6 +211,7 @@
 
 <section class="section-alt">
   <div class="wrap">
+
     <p class="section-kicker">Estrategia</p>
     <h1 class="section-title">Acompañamiento real para generar cambios reales.</h1>
 
@@ -177,35 +220,42 @@
       menos documento y más decisión, implementación y resultados medibles.
     </p>
 
-    <div class="strategy-shell">
-      <!-- Columna principal -->
+    <div class="visual-band">
+      <div>
+        <h3>Menos presentación. Más transformación.</h3>
+        <p>Aterrizamos el problema, definimos una vía de solución y acompañamos su puesta en marcha.
+        El valor está en el impacto real.</p>
+      </div>
+    </div>
+
+    <div class="strategy-grid">
+
       <div class="stack">
+
         <div class="panel">
           <h3>Qué evitamos</h3>
           <p class="muted">
-            Informes estériles que “explican” pero no transforman. Nuestra prioridad es
-            aterrizar el problema, diseñar una vía de solución y acompañar su puesta en marcha.
+            Informes que explican pero no cambian nada. Nuestra prioridad es entender el punto crítico,
+            decidir con criterio y ejecutar con disciplina.
           </p>
 
-          <div class="badges" style="margin-top:14px;">
+          <div class="badges">
             <span class="badge">Enfoque práctico</span>
-            <span class="badge">Orientado a ejecución</span>
-            <span class="badge">Criterio financiero</span>
             <span class="badge">Decisiones accionables</span>
+            <span class="badge">Rigor financiero</span>
+            <span class="badge">Orientado a impacto</span>
           </div>
         </div>
 
         <div class="panel">
           <h3>Cómo trabajamos</h3>
-          <div class="steps" aria-label="Pasos de trabajo">
+
+          <div class="steps">
             <div class="step">
               <div class="step-num">1</div>
               <div>
                 <p class="step-title">Escucha y definición del problema</p>
-                <p class="step-text">
-                  Entendemos el contexto, las restricciones y qué sería un “buen resultado”.
-                  Sin asumir soluciones antes de tiempo.
-                </p>
+                <p class="step-text">Entendemos el contexto y qué sería un buen resultado.</p>
               </div>
             </div>
 
@@ -213,21 +263,15 @@
               <div class="step-num">2</div>
               <div>
                 <p class="step-title">Asignación del profesional adecuado</p>
-                <p class="step-text">
-                  Te conectamos con el colaborador de Beure que mejor encaja por experiencia
-                  y capacidad para abordar el caso con rapidez.
-                </p>
+                <p class="step-text">Te conectamos con el perfil que mejor encaja.</p>
               </div>
             </div>
 
             <div class="step">
               <div class="step-num">3</div>
               <div>
-                <p class="step-title">Propuesta de abordaje sin coste inicial</p>
-                <p class="step-text">
-                  Planteamos una vía de trabajo clara (prioridades, acciones y enfoque) para que
-                  puedas valorar encaje antes de iniciar cualquier colaboración.
-                </p>
+                <p class="step-title">Propuesta clara sin coste inicial</p>
+                <p class="step-text">Definimos prioridades y forma de trabajo antes de avanzar.</p>
               </div>
             </div>
 
@@ -235,35 +279,31 @@
               <div class="step-num">4</div>
               <div>
                 <p class="step-title">Acompañamiento y seguimiento</p>
-                <p class="step-text">
-                  Si avanzamos, trabajamos contigo para ejecutar, ajustar y consolidar cambios.
-                  Lo importante es el impacto, no el volumen de entregables.
-                </p>
+                <p class="step-text">Ejecutamos, ajustamos y consolidamos cambios.</p>
               </div>
             </div>
           </div>
         </div>
+
       </div>
 
-      <!-- Columna lateral -->
-      <div class="stack">
+      <div class="side-sticky">
+
         <div class="note">
           <strong>Ámbitos habituales</strong>
-          <p class="muted" style="margin:0;">
-            Finanzas corporativas, planificación y control, análisis de inversión, soporte a decisiones,
-            mejora de procesos y acompañamiento en momentos clave.
-          </p>
+          Finanzas corporativas, planificación y control, análisis de inversión,
+          mejora de procesos y soporte a decisiones estratégicas.
         </div>
 
         <div class="cta">
           <div style="font-weight:600;">¿Quieres contarnos tu caso?</div>
-          <p>
-            Escríbenos y te responderemos para orientarte y, si encaja, ponerte en contacto con el profesional adecuado.
-          </p>
+          <p>Escríbenos y te orientaremos sin compromiso inicial.</p>
           <a href="contacto.html">Ir al formulario</a>
           <a href="mailto:info@beure.es?subject=Contacto%20Beure">Enviar email</a>
         </div>
+
       </div>
+
     </div>
 
   </div>
