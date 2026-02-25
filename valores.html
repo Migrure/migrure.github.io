@@ -9,35 +9,61 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
-/* Banda visual (solo para Valores) */
-.visual-band{
-  margin-top:40px;
+
+/* Grid valores */
+
+.values-grid{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:24px;
+}
+
+@media (max-width:900px){
+  .values-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+.value-card{
+  position:relative;
   border-radius:24px;
   overflow:hidden;
-  min-height:260px;
+  min-height:280px;
   display:flex;
   align-items:flex-end;
   padding:32px;
-  background:
-    linear-gradient(90deg, rgba(0,0,0,0.72), rgba(0,0,0,0.25)),
-    url("https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg");
+  color:#fff;
   background-size:cover;
   background-position:center;
-  color:#fff;
 }
 
-.visual-band h3{
-  margin:0 0 8px;
-  font-size:24px;
+.value-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.75));
+}
+
+.value-inner{
+  position:relative;
+  z-index:2;
+}
+
+.value-number{
+  font-size:48px;
+  font-weight:700;
+  line-height:1;
+  margin-bottom:10px;
   letter-spacing:-0.02em;
 }
 
-.visual-band p{
-  margin:0;
-  font-size:15px;
-  line-height:1.7;
-  color:rgba(255,255,255,0.9);
+.value-title{
+  font-size:18px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
 }
+
 </style>
 </head>
 
@@ -71,14 +97,36 @@
       que orientan cada colaboración y cada decisión.
     </p>
 
-    <div class="visual-band" role="img" aria-label="Trabajo colaborativo">
-      <div>
-        <h3>Criterio, exigencia y honestidad.</h3>
-        <p>
-          Profesionalidad, rigor, honestidad y flexibilidad no son eslóganes.
-          Son el estándar mínimo con el que trabajamos cada proyecto.
-        </p>
+    <div class="values-grid">
+
+      <div class="value-card" style="background-image:url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg');">
+        <div class="value-inner">
+          <div class="value-number">01</div>
+          <div class="value-title">Profesionalidad</div>
+        </div>
       </div>
+
+      <div class="value-card" style="background-image:url('https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg');">
+        <div class="value-inner">
+          <div class="value-number">02</div>
+          <div class="value-title">Rigor</div>
+        </div>
+      </div>
+
+      <div class="value-card" style="background-image:url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg');">
+        <div class="value-inner">
+          <div class="value-number">03</div>
+          <div class="value-title">Honestidad</div>
+        </div>
+      </div>
+
+      <div class="value-card" style="background-image:url('https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg');">
+        <div class="value-inner">
+          <div class="value-number">04</div>
+          <div class="value-title">Flexibilidad</div>
+        </div>
+      </div>
+
     </div>
 
   </div>
