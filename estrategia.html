@@ -10,47 +10,6 @@
 
 <style>
 
-/* =========================
-   Estrategia – Estilo Modernizado
-   ========================= */
-
-.strategy-grid{
-  display:grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
-  align-items:start;
-  margin-top: 40px;
-}
-
-@media (max-width: 900px){
-  .strategy-grid{ grid-template-columns: 1fr; }
-}
-
-.panel{
-  border: 1px solid #eee;
-  border-radius: 22px;
-  padding: 28px;
-  background:#fff;
-}
-
-.panel h3{
-  margin:0 0 14px;
-  font-size:18px;
-  letter-spacing:-0.01em;
-}
-
-.muted{
-  color:#555;
-  line-height:1.75;
-  margin:0;
-}
-
-.stack{
-  display:flex;
-  flex-direction:column;
-  gap:28px;
-}
-
 /* Banda visual */
 .visual-band{
   margin-top:40px;
@@ -80,113 +39,6 @@
   line-height:1.7;
   color:rgba(255,255,255,0.9);
 }
-
-/* Badges */
-.badges{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:18px;
-}
-
-.badge{
-  padding:10px 16px;
-  border-radius:999px;
-  font-size:13px;
-  border:1px solid #eee;
-  background:#fafafa;
-}
-
-/* Steps */
-.steps{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-}
-
-.step{
-  display:flex;
-  gap:16px;
-}
-
-.step-num{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-  background:#111;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:600;
-  font-size:14px;
-}
-
-.step-title{
-  margin:0 0 6px;
-  font-weight:600;
-}
-
-.step-text{
-  margin:0;
-  font-size:14px;
-  line-height:1.7;
-  color:#555;
-}
-
-/* Sidebar */
-.side-sticky{
-  position:sticky;
-  top:120px;
-}
-
-@media (max-width:900px){
-  .side-sticky{ position:static; }
-}
-
-.note{
-  border-radius:22px;
-  background:#f6f6f6;
-  padding:24px;
-  border:1px solid #eee;
-}
-
-.note strong{
-  display:block;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:0.12em;
-  color:#666;
-  margin-bottom:12px;
-}
-
-.cta{
-  margin-top:24px;
-  background:#111;
-  color:#fff;
-  padding:26px;
-  border-radius:22px;
-}
-
-.cta p{
-  margin:8px 0 16px;
-  color:rgba(255,255,255,0.85);
-  line-height:1.6;
-}
-
-.cta a{
-  display:inline-block;
-  margin-right:10px;
-  margin-top:8px;
-  padding:10px 18px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,0.3);
-  color:#fff;
-  text-decoration:none;
-  font-size:14px;
-}
-
-.cta a:hover{ opacity:0.85; }
 
 </style>
 </head>
@@ -223,87 +75,11 @@
     <div class="visual-band">
       <div>
         <h3>Menos presentación. Más transformación.</h3>
-        <p>Aterrizamos el problema, definimos una vía de solución y acompañamos su puesta en marcha.
-        El valor está en el impacto real.</p>
+        <p>
+          Aterrizamos el problema, definimos una vía de solución y acompañamos su puesta en marcha.
+          El valor está en el impacto real.
+        </p>
       </div>
-    </div>
-
-    <div class="strategy-grid">
-
-      <div class="stack">
-
-        <div class="panel">
-          <h3>Qué evitamos</h3>
-          <p class="muted">
-            Informes que explican pero no cambian nada. Nuestra prioridad es entender el punto crítico,
-            decidir con criterio y ejecutar con disciplina.
-          </p>
-
-          <div class="badges">
-            <span class="badge">Enfoque práctico</span>
-            <span class="badge">Decisiones accionables</span>
-            <span class="badge">Rigor financiero</span>
-            <span class="badge">Orientado a impacto</span>
-          </div>
-        </div>
-
-        <div class="panel">
-          <h3>Cómo trabajamos</h3>
-
-          <div class="steps">
-            <div class="step">
-              <div class="step-num">1</div>
-              <div>
-                <p class="step-title">Escucha y definición del problema</p>
-                <p class="step-text">Entendemos el contexto y qué sería un buen resultado.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">2</div>
-              <div>
-                <p class="step-title">Asignación del profesional adecuado</p>
-                <p class="step-text">Te conectamos con el perfil que mejor encaja.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">3</div>
-              <div>
-                <p class="step-title">Propuesta clara sin coste inicial</p>
-                <p class="step-text">Definimos prioridades y forma de trabajo antes de avanzar.</p>
-              </div>
-            </div>
-
-            <div class="step">
-              <div class="step-num">4</div>
-              <div>
-                <p class="step-title">Acompañamiento y seguimiento</p>
-                <p class="step-text">Ejecutamos, ajustamos y consolidamos cambios.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="side-sticky">
-
-        <div class="note">
-          <strong>Ámbitos habituales</strong>
-          Finanzas corporativas, planificación y control, análisis de inversión,
-          mejora de procesos y soporte a decisiones estratégicas.
-        </div>
-
-        <div class="cta">
-          <div style="font-weight:600;">¿Quieres contarnos tu caso?</div>
-          <p>Escríbenos y te orientaremos sin compromiso inicial.</p>
-          <a href="contacto.html">Ir al formulario</a>
-          <a href="mailto:info@beure.es?subject=Contacto%20Beure">Enviar email</a>
-        </div>
-
-      </div>
-
     </div>
 
   </div>
