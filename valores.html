@@ -7,6 +7,38 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+
+<style>
+/* Banda visual (solo para Valores) */
+.visual-band{
+  margin-top:40px;
+  border-radius:24px;
+  overflow:hidden;
+  min-height:260px;
+  display:flex;
+  align-items:flex-end;
+  padding:32px;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.72), rgba(0,0,0,0.25)),
+    url("https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg");
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+}
+
+.visual-band h3{
+  margin:0 0 8px;
+  font-size:24px;
+  letter-spacing:-0.02em;
+}
+
+.visual-band p{
+  margin:0;
+  font-size:15px;
+  line-height:1.7;
+  color:rgba(255,255,255,0.9);
+}
+</style>
 </head>
 
 <body>
@@ -29,6 +61,7 @@
 
 <section class="section-alt">
   <div class="wrap">
+
     <p class="section-kicker">Valores</p>
     <h1 class="section-title">Los principios que guían nuestra forma de trabajar.</h1>
 
@@ -38,45 +71,16 @@
       que orientan cada colaboración y cada decisión.
     </p>
 
-    <div class="section-grid">
-      <div class="box">
+    <div class="visual-band" role="img" aria-label="Trabajo colaborativo">
+      <div>
+        <h3>Criterio, exigencia y honestidad.</h3>
         <p>
-          <strong>Profesionalidad.</strong> Aplicamos estándares propios de grandes firmas,
-          adaptados al contexto y necesidades reales de cada pyme.
+          Profesionalidad, rigor, honestidad y flexibilidad no son eslóganes.
+          Son el estándar mínimo con el que trabajamos cada proyecto.
         </p>
-
-        <p>
-          <strong>Rigor.</strong> Analizamos cada situación con profundidad técnica y criterio,
-          evitando aproximaciones superficiales o soluciones improvisadas.
-        </p>
-
-        <p>
-          <strong>Honestidad.</strong> Solo proponemos colaboraciones cuando creemos que podemos aportar valor real.
-          La transparencia y la claridad forman parte esencial de nuestra relación con el cliente.
-        </p>
-
-        <p>
-          <strong>Flexibilidad.</strong> Cada empresa y cada momento requieren un enfoque distinto.
-          Adaptamos el ritmo, la estructura y el alcance del trabajo a las circunstancias concretas.
-        </p>
-
-        <div class="pill-list" aria-label="Valores de Beure">
-          <span class="pill">Profesionalidad</span>
-          <span class="pill">Rigor</span>
-          <span class="pill">Honestidad</span>
-          <span class="pill">Flexibilidad</span>
-        </div>
       </div>
-
-      <figure class="quote">
-        <strong>Compromiso</strong>
-        <p>
-          Nuestro objetivo no es generar volumen de trabajo,
-          sino construir relaciones basadas en la confianza,
-          el criterio técnico y la utilidad práctica.
-        </p>
-      </figure>
     </div>
+
   </div>
 </section>
 
