@@ -9,37 +9,117 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
+/* =========================
+   ESTRATEGIA — MÁS VISUAL
+   (todo por debajo del image-band)
+   ========================= */
 
-/* Banda visual */
-.visual-band{
-  margin-top:40px;
-  border-radius:24px;
-  overflow:hidden;
-  min-height:260px;
+.strategy-intro{
+  margin-top: 6px;
   display:flex;
-  align-items:flex-end;
-  padding:32px;
-  background:
-    linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.25)),
-    url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg");
-  background-size:cover;
-  background-position:center;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 18px;
+}
+
+.strategy-intro h1{
+  margin: 0;
+  font-size: clamp(28px, 3.2vw, 44px);
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  max-width: 18ch;
+}
+
+.strategy-intro .micro{
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(0,0,0,0.7);
+  max-width: 44ch;
+}
+
+/* Grid de tiles */
+.strategy-tiles{
+  margin-top: 28px;
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 18px;
+}
+
+.tile{
+  position: relative;
+  display:block;
+  border-radius: 24px;
+  overflow:hidden;
+  min-height: 290px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background-size: cover;
+  background-position: center;
+  transform: translateZ(0);
+  transition: transform .18s ease, filter .18s ease;
+}
+
+/* overlay para que la palabra se lea */
+.tile::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.62));
+  transition: background .18s ease;
+}
+
+.tile__label{
+  position:absolute;
+  left: 18px;
+  bottom: 16px;
+  z-index:1;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: 16px;
   color:#fff;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.22);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.visual-band h3{
-  margin:0 0 8px;
-  font-size:24px;
-  letter-spacing:-0.02em;
+.tile:hover{
+  transform: translateY(-2px);
 }
 
-.visual-band p{
-  margin:0;
-  font-size:15px;
-  line-height:1.7;
-  color:rgba(255,255,255,0.9);
+.tile:hover::before{
+  background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.68));
 }
 
+/* Composición visual (muy “firma”) */
+.t1{ grid-column: 1 / span 7; }
+.t2{ grid-column: 8 / span 5; }
+.t3{ grid-column: 1 / span 5; }
+.t4{ grid-column: 6 / span 7; }
+
+/* Imágenes (Pexels, puedes cambiarlas cuando quieras) */
+.t1{ background-image: url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"); } /* mesa / equipo */
+.t2{ background-image: url("https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"); } /* análisis / datos */
+.t3{ background-image: url("https://images.pexels.com/photos/669365/pexels-photo-669365.jpeg"); }  /* foco / objetivo */
+.t4{ background-image: url("https://images.pexels.com/photos/3183173/pexels-photo-3183173.jpeg"); } /* ejecución */
+
+/* Responsive */
+@media (max-width: 900px){
+  .strategy-intro{
+    flex-direction: column;
+    align-items:flex-start;
+  }
+
+  .strategy-tiles{
+    grid-template-columns: 1fr;
+  }
+
+  .t1,.t2,.t3,.t4{
+    grid-column: auto;
+    min-height: 240px;
+  }
+}
 </style>
 </head>
 
@@ -65,21 +145,30 @@
   <div class="wrap">
 
     <p class="section-kicker">Estrategia</p>
-    <h1 class="section-title">Acompañamiento real para generar cambios reales.</h1>
 
-    <p class="section-lead">
-      Beure acompaña a pymes españolas en finanzas, inversión y consultoría empresarial con un enfoque orientado a ejecución:
-      menos documento y más decisión, implementación y resultados medibles.
-    </p>
+    <div class="strategy-intro">
+      <h1 class="section-title">Menos documento.<br>Más decisión.</h1>
+      <p class="micro">
+        Una forma de trabajar orientada a ejecución: claridad, foco y seguimiento.
+      </p>
+    </div>
 
-    <div class="visual-band">
-      <div>
-        <h3>Menos presentación. Más transformación.</h3>
-        <p>
-          Aterrizamos el problema, definimos una vía de solución y acompañamos su puesta en marcha.
-          El valor está en el impacto real.
-        </p>
-      </div>
+    <div class="strategy-tiles" aria-label="Pilares de estrategia">
+      <a class="tile t1" href="#" aria-label="Diagnóstico">
+        <span class="tile__label">DIAGNÓSTICO</span>
+      </a>
+
+      <a class="tile t2" href="#" aria-label="Foco">
+        <span class="tile__label">FOCO</span>
+      </a>
+
+      <a class="tile t3" href="#" aria-label="Ejecución">
+        <span class="tile__label">EJECUCIÓN</span>
+      </a>
+
+      <a class="tile t4" href="#" aria-label="Seguimiento">
+        <span class="tile__label">SEGUIMIENTO</span>
+      </a>
     </div>
 
   </div>
