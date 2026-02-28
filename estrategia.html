@@ -10,8 +10,7 @@
 
 <style>
 /* =========================
-   ESTRATEGIA — MÁS VISUAL
-   (todo por debajo del image-band)
+   ESTRATEGIA — VISUAL PREMIUM
    ========================= */
 
 .strategy-intro{
@@ -24,7 +23,7 @@
 
 .strategy-intro h1{
   margin: 0;
-  font-size: clamp(28px, 3.2vw, 44px);
+  font-size: clamp(30px, 3.4vw, 48px);
   letter-spacing: -0.03em;
   line-height: 1.05;
   max-width: 18ch;
@@ -38,74 +37,72 @@
   max-width: 44ch;
 }
 
-/* Grid de tiles */
+/* GRID */
+
 .strategy-tiles{
-  margin-top: 28px;
+  margin-top: 40px;
   display:grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 18px;
+  gap: 22px;
 }
 
 .tile{
   position: relative;
   display:block;
-  border-radius: 24px;
+  border-radius: 28px;
   overflow:hidden;
-  min-height: 290px;
-  border: 1px solid rgba(0,0,0,0.08);
+  min-height: 320px;
   background-size: cover;
   background-position: center;
-  transform: translateZ(0);
-  transition: transform .18s ease, filter .18s ease;
+  transition: transform .25s ease;
 }
 
-/* overlay para que la palabra se lea */
+/* Overlay más limpio */
 .tile::before{
   content:"";
   position:absolute;
   inset:0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.62));
-  transition: background .18s ease;
+  background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.55));
+  transition: background .25s ease;
 }
 
+/* Palabras más potentes */
 .tile__label{
   position:absolute;
-  left: 18px;
-  bottom: 16px;
+  left: 36px;
+  bottom: 34px;
   z-index:1;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  font-size: clamp(24px, 2.6vw, 40px);
+  line-height: 1;
   color:#fff;
-  padding: 10px 12px;
-  border-radius: 14px;
-  background: rgba(0,0,0,0.22);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  text-transform: uppercase;
 }
 
 .tile:hover{
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
 .tile:hover::before{
-  background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.68));
+  background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.65));
 }
 
-/* Composición visual (muy “firma”) */
+/* Composición visual elegante */
 .t1{ grid-column: 1 / span 7; }
 .t2{ grid-column: 8 / span 5; }
 .t3{ grid-column: 1 / span 5; }
 .t4{ grid-column: 6 / span 7; }
 
-/* Imágenes (Pexels, puedes cambiarlas cuando quieras) */
-.t1{ background-image: url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"); } /* mesa / equipo */
-.t2{ background-image: url("https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"); } /* análisis / datos */
-.t3{ background-image: url("https://images.pexels.com/photos/669365/pexels-photo-669365.jpeg"); }  /* foco / objetivo */
-.t4{ background-image: url("https://images.pexels.com/photos/3183173/pexels-photo-3183173.jpeg"); } /* ejecución */
+/* Imágenes */
+.t1{ background-image: url("https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg"); }
+.t2{ background-image: url("https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg"); }
+.t3{ background-image: url("https://images.pexels.com/photos/669365/pexels-photo-669365.jpeg"); }
+.t4{ background-image: url("https://images.pexels.com/photos/3183173/pexels-photo-3183173.jpeg"); }
 
 /* Responsive */
 @media (max-width: 900px){
+
   .strategy-intro{
     flex-direction: column;
     align-items:flex-start;
@@ -117,7 +114,12 @@
 
   .t1,.t2,.t3,.t4{
     grid-column: auto;
-    min-height: 240px;
+    min-height: 260px;
+  }
+
+  .tile__label{
+    left: 24px;
+    bottom: 24px;
   }
 }
 </style>
@@ -149,26 +151,28 @@
     <div class="strategy-intro">
       <h1 class="section-title">Menos documento.<br>Más decisión.</h1>
       <p class="micro">
-        Una forma de trabajar orientada a ejecución: claridad, foco y seguimiento.
+        Claridad, foco y ejecución real.
       </p>
     </div>
 
-    <div class="strategy-tiles" aria-label="Pilares de estrategia">
-      <a class="tile t1" href="#" aria-label="Diagnóstico">
-        <span class="tile__label">DIAGNÓSTICO</span>
-      </a>
+    <div class="strategy-tiles">
 
-      <a class="tile t2" href="#" aria-label="Foco">
-        <span class="tile__label">FOCO</span>
-      </a>
+      <div class="tile t1">
+        <span class="tile__label">Diagnóstico</span>
+      </div>
 
-      <a class="tile t3" href="#" aria-label="Ejecución">
-        <span class="tile__label">EJECUCIÓN</span>
-      </a>
+      <div class="tile t2">
+        <span class="tile__label">Foco</span>
+      </div>
 
-      <a class="tile t4" href="#" aria-label="Seguimiento">
-        <span class="tile__label">SEGUIMIENTO</span>
-      </a>
+      <div class="tile t3">
+        <span class="tile__label">Ejecución</span>
+      </div>
+
+      <div class="tile t4">
+        <span class="tile__label">Seguimiento</span>
+      </div>
+
     </div>
 
   </div>
