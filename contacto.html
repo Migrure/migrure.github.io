@@ -9,98 +9,67 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
-/* Solo estilos del formulario (manteniendo tu estética) */
-.form-card{
-  border: 1px solid #eee;
-  border-radius: 18px;
-  padding: 22px;
-  background: #fff;
+/* =========================
+   CONTACTO — SOBRIO + PREMIUM
+   ========================= */
+
+.contact-container{
+  margin-top: 20px;
+  max-width: 72ch;
 }
 
-.form-grid{
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
+.contact-prose{
+  font-size: 18px;
+  line-height: 1.9;
+  color: #111;
 }
 
-.field{
-  display:flex;
-  flex-direction:column;
-  gap: 8px;
-}
-
-label{
-  font-size: 12px;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color:#666;
-}
-
-input, textarea{
-  font-family: inherit;
-  font-size: 15px;
-  line-height: 1.4;
-  padding: 12px 12px;
-  border-radius: 12px;
-  border: 1px solid #e8e8e8;
-  outline: none;
-  background: #fff;
-  color:#111;
-}
-
-input:focus, textarea:focus{
-  border-color:#cfcfcf;
-}
-
-textarea{
-  min-height: 140px;
-  resize: vertical;
-}
-
-.actions{
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-top: 14px;
-  flex-wrap: wrap;
-}
-
-.btn{
-  appearance:none;
-  border: 1px solid #111;
-  background:#111;
-  color:#fff;
-  border-radius: 999px;
-  padding: 12px 16px;
-  font-size: 14px;
-  cursor:pointer;
-}
-
-.btn:hover{
-  filter: brightness(0.95);
-}
-
-.hint{
-  font-size: 13px;
-  color:#666;
+.contact-prose p{
   margin: 0;
 }
 
-.small{
-  font-size: 13px;
-  color:#666;
-  margin: 12px 0 0;
+.contact-prose p + p{
+  margin-top: 24px;
 }
 
-.small a{
+.contact-email{
+  display:inline-block;
+  margin-top: 26px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
   color:#111;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  border-bottom: 1px solid #111;
+  padding-bottom: 4px;
+  transition: opacity .2s ease;
 }
 
-@media(max-width: 900px){
-  .form-grid{ grid-template-columns: 1fr; }
+.contact-email:hover{
+  opacity: 0.7;
+}
+
+/* --- Micro-animación sutil on-scroll --- */
+
+.reveal{
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity .6s ease,
+    transform .6s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 </style>
 </head>
@@ -117,6 +86,7 @@ textarea{
   </nav>
 </header>
 
+<!-- HERO EXACTAMENTE IGUAL -->
 <section class="hero"></section>
 
 <section class="image-band">
@@ -125,64 +95,26 @@ textarea{
 
 <section class="section-alt">
   <div class="wrap">
-    <p class="section-kicker">Contacto</p>
-    <h1 class="section-title">Hablemos.</h1>
 
-    <p class="section-lead">
-      Cuéntanos brevemente tu situación y te pondremos en contacto con el profesional adecuado.
-    </p>
+    <p class="section-kicker reveal">Contacto</p>
+    <h1 class="section-title reveal">Hablemos.</h1>
 
-    <div class="section-grid">
-      <div class="form-card">
-        <!-- IMPORTANTE:
-             1) Crea tu formulario en Formspree
-             2) Sustituye TU_ID_DE_FORMSPREE por el ID real -->
-        <form action="https://formspree.io/f/TU_ID_DE_FORMSPREE" method="POST">
-          <div class="form-grid">
-            <div class="field">
-              <label for="nombre">Nombre</label>
-              <input id="nombre" name="nombre" type="text" autocomplete="name" required>
-            </div>
-
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
-            </div>
-          </div>
-
-          <div class="field" style="margin-top:14px;">
-            <label for="empresa">Empresa (opcional)</label>
-            <input id="empresa" name="empresa" type="text" autocomplete="organization">
-          </div>
-
-          <div class="field" style="margin-top:14px;">
-            <label for="mensaje">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" required placeholder="¿Qué problema necesitas resolver?"></textarea>
-          </div>
-
-          <!-- Opcional: asunto -->
-          <input type="hidden" name="_subject" value="Nuevo contacto desde beure.es">
-
-          <div class="actions">
-            <button class="btn" type="submit">Enviar</button>
-            <p class="hint">Respondemos lo antes posible.</p>
-          </div>
-
-          <p class="small">
-            Si lo prefieres, escríbenos directamente a
-            <a href="mailto:info@beure.es?subject=Contacto%20Beure">info@beure.es</a>.
-          </p>
-        </form>
-      </div>
-
-      <figure class="quote">
-        <strong>Primer contacto</strong>
-        <p>
-          Una vez recibido tu mensaje, revisaremos el contexto y te propondremos el siguiente paso
-          para abordar el problema de forma práctica.
+    <div class="contact-container">
+      <div class="contact-prose">
+        <p class="reveal">
+          Si desea mantener una conversación acerca de una oportunidad de inversión, un proyecto en curso o cualquier cuestión relacionada con nuestra actividad, estaremos encantados de atenderle.
         </p>
-      </figure>
+
+        <p class="reveal">
+          Puede dirigirse directamente a nuestra dirección de correo electrónico y le responderemos a la mayor brevedad posible.
+        </p>
+
+        <a class="contact-email reveal" href="mailto:info@beure.es?subject=Contacto%20Beure">
+          info@beure.es
+        </a>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -191,6 +123,29 @@ textarea{
   <p>info@beure.es</p>
   <p>© 2026 Beure</p>
 </footer>
+
+<script>
+  (function () {
+    const els = Array.from(document.querySelectorAll('.reveal'));
+    if (!els.length) return;
+
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    els.forEach(el => io.observe(el));
+  })();
+</script>
 
 </body>
 </html>
