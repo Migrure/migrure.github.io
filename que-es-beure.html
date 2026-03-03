@@ -9,54 +9,50 @@
   <link rel="stylesheet" href="styles.css">
 
   <style>
-    /* Solo ajustes mínimos, sin cambiar tu layout global */
-    .section-wrap{
-      margin: 0 8%;
+    /* HERO: mismo concepto que Estrategia (banda alta con BEURE centrado) */
+    .visual-band{
+      position: relative;
+    }
+    .visual-band::after{
+      content: "BEURE";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-weight: 700;
+      letter-spacing: 10px;
+      font-size: clamp(36px, 6vw, 84px);
+      color: rgba(255,255,255,0.18);
+      text-transform: uppercase;
+      pointer-events: none;
+      white-space: nowrap;
     }
 
-    .text-panel{
-      margin-top: 22px;
+    /* Bloque de texto sobrio (sin romper tu layout) */
+    .beure-text{
+      margin: 28px 8% 70px;
+      max-width: 980px;
       border: 1px solid rgba(0,0,0,0.08);
       border-radius: 18px;
       padding: 26px;
       background: #fff;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
-      max-width: 980px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
     }
-
-    .text-panel p{
+    .beure-text p{
       margin: 0;
       font-size: 17px;
       line-height: 1.75;
       color: #111;
     }
-
-    .text-panel p + p{
+    .beure-text p + p{
       margin-top: 14px;
       padding-top: 14px;
       border-top: 1px solid rgba(0,0,0,0.07);
     }
 
-    /* Título dentro del hero, por si tu CSS no lo estiliza */
-    .visual-band h1{
-      margin: 0;
-      font-size: clamp(28px, 3.2vw, 44px);
-      letter-spacing: 0.6px;
-      line-height: 1.05;
-      color: #fff;
-    }
-
-    .visual-band .hero-sub{
-      margin-top: 10px;
-      max-width: 72ch;
-      color: rgba(255,255,255,0.92);
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
     @media (max-width: 720px){
-      .text-panel{ padding: 20px; }
-      .text-panel p{ font-size: 16px; }
+      .beure-text{ padding: 20px; }
+      .beure-text p{ font-size: 16px; }
     }
   </style>
 </head>
@@ -75,37 +71,37 @@
 
 <main>
 
-  <!-- HERO / BANDA VISUAL (igual que en Estrategia) -->
-  <section class="section-wrap">
-    <div class="visual-band" style="
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.25)),
-        url('https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1600');
-      background-size: cover;
-      background-position: center;
-    ">
-      <div>
-        <h1>Qué es Beure</h1>
-        <div class="hero-sub">Holding de inversión y servicios de gestión y financieros.</div>
-      </div>
-    </div>
+  <!-- HERO / BANDA VISUAL (igual que Estrategia) -->
+  <section class="visual-band" style="
+    margin-top:40px;
+    border-radius:24px;
+    overflow:hidden;
+    min-height:260px;
+    display:flex;
+    align-items:flex-end;
+    padding:32px;
+    background:
+      linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.25)),
+      url('assets/office-forest.jpg');
+    background-size: cover;
+    background-position: center;
+  ">
+    <!-- No ponemos H1 aquí: en tu Estrategia la gracia es el BEURE centrado -->
   </section>
 
   <!-- TEXTO -->
-  <section class="section-wrap">
-    <div class="text-panel">
-      <p>
-        BEURE es un holding empresarial radicado en el Principado de Asturias y con sede en Madrid, desde el que se
-        canaliza la inversión en diferentes proyectos de Real Estate, seed y Venture Capital, en todo el territorio
-        español y desde el que se prestan servicios de gestión y financieros.
-      </p>
+  <section class="beure-text">
+    <p>
+      BEURE es un holding empresarial radicado en el Principado de Asturias y con sede en Madrid, desde el que se canaliza
+      la inversión en diferentes proyectos de Real Estate, seed y Venture Capital, en todo el territorio español y desde el
+      que se prestan servicios de gestión y financieros.
+    </p>
 
-      <p>
-        BEURE nace de la vocación de distintos profesionales con experiencia en procesos de inversión y gestión financiera
-        que, tras años de desempeño en firmas y empresas multinacionales, deciden acometer proyectos directamente
-        combinando el análisis riguroso y la experiencia con herramientas y tecnología avanzada a su disposición.
-      </p>
-    </div>
+    <p>
+      BEURE nace de la vocación de distintos profesionales con experiencia en procesos de inversión y gestión financiera que,
+      tras años de desempeño en firmas y empresas multinacionales, deciden acometer proyectos directamente combinando el análisis
+      riguroso y la experiencia con herramientas y tecnología avanzada a su disposición.
+    </p>
   </section>
 
 </main>
