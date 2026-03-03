@@ -9,98 +9,52 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
-
 /* =========================
-   QUÉ ES BEURE — PREMIUM EDITORIAL
+   QUÉ ES BEURE — PREMIUM + MICRO ANIMACIÓN
    ========================= */
 
-.about-layout{
+.about-container{
   margin-top: 20px;
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 40px;
-  align-items: start;
+  max-width: 78ch;
 }
 
-.about-main{
+.about-prose{
   font-size: 18px;
-  line-height: 1.85;
-  color:#111;
-  max-width: 60ch;
+  line-height: 1.9;
+  color: #111;
 }
 
-.about-main p{
+.about-prose p{
   margin: 0;
 }
 
-.about-main p + p{
+.about-prose p + p{
   margin-top: 26px;
 }
 
-.about-side{
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
+/* --- Micro-animación sutil on-scroll --- */
+.reveal{
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity .6s ease,
+    transform .6s ease;
+  will-change: opacity, transform;
 }
 
-/* Panel lateral premium */
-
-.side-block{
-  padding: 28px;
-  border-radius: 26px;
-  background: linear-gradient(180deg, #ffffff, #fafafa);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.05);
+.reveal.is-visible{
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.side-label{
-  font-size: 12px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: rgba(0,0,0,0.55);
-  margin-bottom: 18px;
-  font-weight: 600;
-}
-
-.side-list{
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  font-size: 15px;
-  color: rgba(0,0,0,0.75);
-}
-
-.side-list span{
-  display: block;
-}
-
-.highlight-box{
-  padding: 24px;
-  border-radius: 24px;
-  background: #111;
-  color: #fff;
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.highlight-box strong{
-  font-weight: 600;
-}
-
-/* Responsive */
-
-@media (max-width: 900px){
-
-  .about-layout{
-    grid-template-columns: 1fr;
-    gap: 30px;
-  }
-
-  .about-main{
-    max-width: none;
+/* Para usuarios con reducción de movimiento */
+@media (prefers-reduced-motion: reduce){
+  .reveal{
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
-
 </style>
 </head>
 
@@ -126,51 +80,19 @@
 <section class="section-alt">
   <div class="wrap">
 
-    <p class="section-kicker">Beure</p>
-    <h1 class="section-title">Qué es Beure</h1>
+    <p class="section-kicker reveal">Beure</p>
+    <h1 class="section-title reveal">Qué es Beure</h1>
 
-    <div class="about-layout">
-
-      <!-- TEXTO PRINCIPAL -->
-      <div class="about-main">
-        <p>
+    <div class="about-container">
+      <div class="about-prose">
+        <p class="reveal">
           BEURE es un holding empresarial radicado en el Principado de Asturias y con sede en Madrid, desde el que se canaliza la inversión en diferentes proyectos de Real Estate, seed y Venture Capital, en todo el territorio español y desde el que se prestan servicios de gestión y financieros.
         </p>
 
-        <p>
+        <p class="reveal">
           BEURE nace de la vocación de distintos profesionales con experiencia en procesos de inversión y gestión financiera que, tras años de desempeño en firmas y empresas multinacionales, deciden acometer proyectos directamente combinando el análisis riguroso y la experiencia con herramientas y tecnología avanzada a su disposición.
         </p>
       </div>
-
-      <!-- LATERAL VISUAL PREMIUM -->
-      <aside class="about-side">
-
-        <div class="side-block">
-          <div class="side-label">Ámbito de actuación</div>
-          <div class="side-list">
-            <span>Real Estate</span>
-            <span>Seed Capital</span>
-            <span>Venture Capital</span>
-            <span>Servicios de gestión</span>
-            <span>Servicios financieros</span>
-          </div>
-        </div>
-
-        <div class="side-block">
-          <div class="side-label">Base operativa</div>
-          <div class="side-list">
-            <span>Principado de Asturias</span>
-            <span>Sede en Madrid</span>
-            <span>Actuación en todo el territorio nacional</span>
-          </div>
-        </div>
-
-        <div class="highlight-box">
-          Análisis riguroso, experiencia operativa y <strong>tecnología avanzada</strong> al servicio de cada decisión de inversión.
-        </div>
-
-      </aside>
-
     </div>
 
   </div>
@@ -181,6 +103,31 @@
   <p>info@beure.es</p>
   <p>© 2026 Beure</p>
 </footer>
+
+<script>
+  // Reveal on scroll (sutil y limpio)
+  (function () {
+    const els = Array.from(document.querySelectorAll('.reveal'));
+    if (!els.length) return;
+
+    // Si el navegador no soporta IntersectionObserver, mostramos todo
+    if (!('IntersectionObserver' in window)) {
+      els.forEach(el => el.classList.add('is-visible'));
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target); // solo una vez
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    els.forEach(el => io.observe(el));
+  })();
+</script>
 
 </body>
 </html>
