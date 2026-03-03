@@ -9,64 +9,98 @@
 <link rel="stylesheet" href="styles.css">
 
 <style>
+
 /* =========================
-   QUÉ ES BEURE — MISMO ESTILO QUE ESTRATEGIA
+   QUÉ ES BEURE — PREMIUM EDITORIAL
    ========================= */
 
-.about-intro{
-  margin-top: 6px;
-  display:flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 18px;
+.about-layout{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 40px;
+  align-items: start;
 }
 
-.about-intro h1{
-  margin: 0;
-  font-size: clamp(30px, 3.4vw, 48px);
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  max-width: 22ch;
-}
-
-.about-intro .micro{
-  margin: 0;
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(0,0,0,0.7);
-  max-width: 46ch;
-}
-
-.about-card{
-  margin-top: 26px;
-  border-radius: 28px;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.08);
-  padding: 26px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-  max-width: 980px;
-}
-
-.about-card p{
-  margin: 0;
-  font-size: 17px;
-  line-height: 1.75;
+.about-main{
+  font-size: 18px;
+  line-height: 1.85;
   color:#111;
+  max-width: 60ch;
 }
 
-.about-card p + p{
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(0,0,0,0.07);
+.about-main p{
+  margin: 0;
+}
+
+.about-main p + p{
+  margin-top: 26px;
+}
+
+.about-side{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Panel lateral premium */
+
+.side-block{
+  padding: 28px;
+  border-radius: 26px;
+  background: linear-gradient(180deg, #ffffff, #fafafa);
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.05);
+}
+
+.side-label{
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.55);
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+
+.side-list{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 15px;
+  color: rgba(0,0,0,0.75);
+}
+
+.side-list span{
+  display: block;
+}
+
+.highlight-box{
+  padding: 24px;
+  border-radius: 24px;
+  background: #111;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.highlight-box strong{
+  font-weight: 600;
 }
 
 /* Responsive */
+
 @media (max-width: 900px){
-  .about-intro{
-    flex-direction: column;
-    align-items:flex-start;
+
+  .about-layout{
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-main{
+    max-width: none;
   }
 }
+
 </style>
 </head>
 
@@ -82,7 +116,7 @@
   </nav>
 </header>
 
-<!-- EXACTAMENTE IGUAL QUE EN ESTRATEGIA -->
+<!-- HERO EXACTAMENTE IGUAL -->
 <section class="hero"></section>
 
 <section class="image-band">
@@ -92,23 +126,51 @@
 <section class="section-alt">
   <div class="wrap">
 
-    <p class="section-kicker">Qué es Beure</p>
+    <p class="section-kicker">Beure</p>
+    <h1 class="section-title">Qué es Beure</h1>
 
-    <div class="about-intro">
-      <h1 class="section-title">Un holding.<br>Varios focos.</h1>
-      <p class="micro">
-        Inversión en Real Estate, seed y Venture Capital, y servicios de gestión y financieros.
-      </p>
-    </div>
+    <div class="about-layout">
 
-    <div class="about-card">
-      <p>
-        BEURE es un holding empresarial radicado en el Principado de Asturias y con sede en Madrid, desde el que se canaliza la inversión en diferentes proyectos de Real Estate, seed y Venture Capital, en todo el territorio español y desde el que se prestan servicios de gestión y financieros.
-      </p>
+      <!-- TEXTO PRINCIPAL -->
+      <div class="about-main">
+        <p>
+          BEURE es un holding empresarial radicado en el Principado de Asturias y con sede en Madrid, desde el que se canaliza la inversión en diferentes proyectos de Real Estate, seed y Venture Capital, en todo el territorio español y desde el que se prestan servicios de gestión y financieros.
+        </p>
 
-      <p>
-        BEURE nace de la vocación de distintos profesionales con experiencia en procesos de inversión y gestión financiera que, tras años de desempeño en firmas y empresas multinacionales, deciden acometer proyectos directamente combinando el análisis riguroso y la experiencia con herramientas y tecnología avanzada a su disposición.
-      </p>
+        <p>
+          BEURE nace de la vocación de distintos profesionales con experiencia en procesos de inversión y gestión financiera que, tras años de desempeño en firmas y empresas multinacionales, deciden acometer proyectos directamente combinando el análisis riguroso y la experiencia con herramientas y tecnología avanzada a su disposición.
+        </p>
+      </div>
+
+      <!-- LATERAL VISUAL PREMIUM -->
+      <aside class="about-side">
+
+        <div class="side-block">
+          <div class="side-label">Ámbito de actuación</div>
+          <div class="side-list">
+            <span>Real Estate</span>
+            <span>Seed Capital</span>
+            <span>Venture Capital</span>
+            <span>Servicios de gestión</span>
+            <span>Servicios financieros</span>
+          </div>
+        </div>
+
+        <div class="side-block">
+          <div class="side-label">Base operativa</div>
+          <div class="side-list">
+            <span>Principado de Asturias</span>
+            <span>Sede en Madrid</span>
+            <span>Actuación en todo el territorio nacional</span>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          Análisis riguroso, experiencia operativa y <strong>tecnología avanzada</strong> al servicio de cada decisión de inversión.
+        </div>
+
+      </aside>
+
     </div>
 
   </div>
