@@ -1,64 +1,216 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<!DOCTYPE html>
+<!-- saved from url=(0055)file:///C:/Users/migru/Downloads/index_con_barra_2.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beure</title>
+<meta name="description" content="Beure — Consultoría y Proyectos.">
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Beure_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0A1929;
+    --navy:#12293F;
+    --paper:#F4F3F0;
+    --paper-dim:#E7E5E0;
+    --brass:#9C8455;
+    --brass-bright:#B79A66;
+    --slate:#5B6472;
+    --slate-on-navy:#A9B4C0;
+    --serif: "Source Serif 4", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  a:focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
+  .seal{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:44px;height:44px;
+    border:1px solid currentColor;
+    flex:none;
+  }
+  .seal svg{width:20px;height:20px;display:block;}
+
+  /* ---------- Hero: the whole identity, full screen ---------- */
+  .hero{
+    min-height:calc(100vh - 76px);
+    background:var(--ink);
+    color:var(--paper);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:32px;
+  }
+  .hero .seal{color:var(--brass-bright); margin-bottom:26px;}
+  .hero h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:clamp(44px, 9vw, 92px);
+    letter-spacing:0.02em;
+    margin:0;
+    line-height:1;
+  }
+  .hero-rule{
+    width:56px;
+    height:1px;
+    background:var(--brass);
+    margin:30px 0;
+  }
+  .hero .descriptor{
+    font-family:var(--sans);
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--slate-on-navy);
+    margin:0;
+  }
+
+  /* ---------- Contacto ---------- */
+  .contact-section{
+    min-height:40vh;
+    background:var(--paper);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:80px 32px;
+  }
+  .contact-email{
+    font-family:var(--serif);
+    font-size:clamp(24px, 4vw, 34px);
+    text-decoration:none;
+    color:var(--ink);
+    border-bottom:1px solid var(--brass);
+    padding-bottom:6px;
+    transition:opacity .15s ease;
+  }
+  .contact-email:hover{opacity:0.65;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:22px 32px;
+    background:var(--paper);
+  }
+  .footer-inner{
+    max-width:1080px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    color:var(--slate);
+    font-size:11px;
+  }
+  .footer-inner .seal{
+    width:20px;height:20px;
+    color:var(--brass);
+  }
+  .footer-inner .seal svg{width:10px;height:10px;}
+  .legal-note{
+    color:rgba(91,100,114,0.6);
+  }
+  @media (max-width:560px){
+    .footer-inner{flex-direction:column; gap:6px;}
+  }
+
+  header{
+    position:sticky; top:0; z-index:10;
+    background:rgba(244,243,240,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--paper-dim);
+  }
+  .nav-wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:16px 32px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--ink);
+  }
+  .brand .seal{
+    width:28px; height:28px; color:var(--ink);
+  }
+  .brand .seal svg{width:13px;height:13px;}
+  .brand-name{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:16px;
+    letter-spacing:0.02em;
+  }
+  header nav a{
+    text-decoration:none;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:0.03em;
+    color:var(--slate);
+    transition:color .15s ease;
+  }
+  header nav a:hover{color:var(--ink);}
+</style>
 </head>
-
 <body>
 
 <header>
-  <div class="logo"><a href="index.html">BEURE</a></div>
-  <nav>
-    <a href="que-es-beure.html">Qué es Beure</a>
-    <a href="contacto.html">Contacto</a>
-  </nav>
+  <div class="nav-wrap">
+    <a href="file:///C:/Users/migru/Downloads/index_con_barra_2.html#" class="brand" aria-label="Beure — inicio">
+      <span class="seal" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><text x="12" y="17" text-anchor="middle" font-family="Source Serif 4, serif" font-size="15" fill="currentColor">B</text></svg>
+      </span>
+      <span class="brand-name">Beure</span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="file:///C:/Users/migru/Downloads/index_con_barra_2.html#contacto">Contacto</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h1> </h1>
-    <p> </p>
-  </div>
+  <span class="seal" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none"><text x="12" y="17" text-anchor="middle" font-family="Source Serif 4, serif" font-size="15" fill="currentColor">B</text></svg>
+  </span>
+  <h1>BEURE</h1>
+  <div class="hero-rule" aria-hidden="true"></div>
+  <p class="descriptor">Consultoría y Proyectos</p>
 </section>
 
-<section class="image-band">
-  <h2>BEURE</h2>
-</section>
-
-<section class="section">
-  <h2>Nuestro enfoque</h2>
-  <p>
-    Desde BEURE analizamos oportunidades de inversión, potenciando el negocio desde una gestión financiera sólida, en proyectos de Real Estate, tecnológicos y de servicios globales.
-  </p>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Inversiones</h3>
-      <p>Real Estate, Tecnología y Servicios Globales.</p>
-    </div>
-
-    <div class="card">
-      <h3>Gestión Financiera</h3>
-      <p>Profesionalidad y rigor financiero al servicio del negocio.</p>
-    </div>
-
-    <div class="card">
-      <h3>Resultados</h3>
-      <p>Track record demostrable. Orientados a maximizar valor.</p>
-    </div>
-  </div>
+<section id="contacto" class="contact-section">
+  <a class="contact-email" href="mailto:info@beure.es">info@beure.es</a>
 </section>
 
 <footer>
-  <h2>Contacto</h2>
-  <p>info@beure.es</p>
-  <p>© 2026 Beure</p>
+  <div class="footer-inner">
+    <span class="seal" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><text x="12" y="17" text-anchor="middle" font-family="Source Serif 4, serif" font-size="15" fill="currentColor">B</text></svg>
+    </span>
+    <span class="legal-note">© 2026 Beure Consultoría y Proyectos, S.L. · Aviso legal</span>
+  </div>
 </footer>
 
-</body>
-</html>
+
+
+</body></html>
